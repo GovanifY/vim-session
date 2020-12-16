@@ -146,19 +146,19 @@ function! xolox#session#save_qflist(commands) " {{{2
   " Save the contents of the quick-fix list. The first argument is expected to
   " be a list, it will be extended with the lines to be added to the session
   " script.
-  if has('quickfix')
-    let qf_list = []
-    for qf_entry in getqflist()
-      if has_key(qf_entry, 'bufnr')
-        if !has_key(qf_entry, 'filename')
-          let qf_entry.filename = bufname(qf_entry.bufnr)
-        endif
-        unlet qf_entry.bufnr
-      endif
-      call add(qf_list, qf_entry)
-    endfor
-    call add(a:commands, 'call setqflist(' . string(qf_list) . ')')
-  endif
+ " if has('quickfix')
+    "let qf_list = []
+    "for qf_entry in getqflist()
+      "if has_key(qf_entry, 'bufnr')
+        "if !has_key(qf_entry, 'filename')
+          "let qf_entry.filename = bufname(qf_entry.bufnr)
+        "endif
+        "unlet qf_entry.bufnr
+      "endif
+      "call add(qf_list, qf_entry)
+    "endfor
+    "call add(a:commands, 'call setqflist(' . string(qf_list) . ')')
+ " endif
 endfunction
 
 function! xolox#session#save_state(commands) " {{{2
