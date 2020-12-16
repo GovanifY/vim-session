@@ -248,7 +248,7 @@ function! s:state_filter(line) " {{{3
     return '" ' . a:line
   " elseif a:line =~ '^file -MiniBufExplorer-$'
   "   return '" ' . a:line
-  elseif a:line =~ '^file .\{-}__Tagbar__$'
+  elseif a:line =~ '^file .*__Tagbar__.*'
     return '" ' . a:line
   elseif a:line =~ '^file .\{-}__Tag_List__$'
     " Same trick (about the E95) for TagList.
