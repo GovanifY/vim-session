@@ -30,8 +30,7 @@ function! xolox#session#save_session(commands, filename) " {{{2
   call add(a:commands, '" Created by session.vim ' . g:xolox#session#version . ' on ' . strftime('%d %B %Y at %H:%M:%S.'))
   call add(a:commands, '" Open this file in Vim and run :source % to restore your session.')
   call add(a:commands, '')
-  call add(a:commands, "let l:syntas_backup = g:syntastic_mode_map.mode")
-  call add(a:commands, "let g:syntastic_mode_map.mode = 'passive'")
+  call add(a:commands, "let g:syntastic_mode_map = { 'mode': 'passive' }")
 
   if &verbose >= 1
     call add(a:commands, 'set verbose=' . &verbose)
@@ -66,7 +65,7 @@ function! xolox#session#save_session(commands, filename) " {{{2
     call add(a:commands, 'silent! execute s:winrestcmd')
   endif
   call add(a:commands, 'unlet SessionLoad')
-  call add(a:commands, "let g:syntastic_mode_map.mode = l:syntas_backup")
+  call add(a:commands, "unlet g:syntastic_mode_map.mode")
   call add(a:commands, '" vim: ft=vim ro nowrap smc=128')
 endfunction
 
