@@ -322,7 +322,7 @@ function! s:check_special_window(session)
   elseif bufname == '[BufExplorer]'
     let command = 'BufExplorer'
     let argument = ''
-  elseif bufname == '__Tagbar__'
+  elseif bufname =~ '.*__Tagbar__.*'
     let command = 'TagbarOpen'
     let argument = ''
   elseif bufname == '__Tag_List__'
